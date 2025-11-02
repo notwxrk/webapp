@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Rewards App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Task Rewards</h1>
+            <div class="balance" id="balance">$0.00</div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <button class="nav-btn active" data-tab="tasks">Tasks</button>
+            <button class="nav-btn" data-tab="profile">Profile</button>
+            <button class="nav-btn" data-tab="payout">Payout</button>
+        </nav>
+
+        <!-- Tasks Tab -->
+        <div class="tab-content active" id="tasks-tab">
+            <div class="tasks-list" id="tasks-list">
+                <!-- Tasks will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Profile Tab -->
+        <div class="tab-content" id="profile-tab">
+            <div class="profile-info">
+                <div class="info-item">
+                    <label>User ID:</label>
+                    <span id="profile-uid"></span>
+                </div>
+                <div class="info-item">
+                    <label>Username:</label>
+                    <span id="profile-username"></span>
+                </div>
+                <div class="info-item">
+                    <label>Balance:</label>
+                    <span id="profile-balance"></span>
+                </div>
+            </div>
+            
+            <h3>Task History</h3>
+            <div class="task-history" id="task-history">
+                <!-- Task history will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Payout Tab -->
+        <div class="tab-content" id="payout-tab">
+            <div class="payout-form">
+                <input type="number" id="payout-amount" placeholder="Amount (min $1)" step="0.01" min="1">
+                <input type="text" id="usdt-address" placeholder="USDT BSC Address">
+                <button id="submit-payout">Submit Payout</button>
+            </div>
+            
+            <h3>Payout History</h3>
+            <div class="payout-history" id="payout-history">
+                <!-- Payout history will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modal-task-title"></h3>
+            <p id="modal-task-desc"></p>
+            <p><strong>Reward: $<span id="modal-task-reward"></span></strong></p>
+            <textarea id="proof-text" placeholder="Enter proof or completion details..."></textarea>
+            <button id="submit-task">Submit Task</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
